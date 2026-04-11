@@ -1,0 +1,20 @@
+services:
+  langflow:
+    image: langflowai/langflow:latest
+    pull_policy: always
+    ports:
+      - "7860:7860"
+    environment:
+      - LANGFLOW_CONFIG_DIR=/app/langflow
+      - LANGFLOW_SAVE_DB_IN_CONFIG_DIR=true
+      - LANGFLOW_LOAD_FLOWS_PATH=/app/flows
+    volumes:
+      - ./langflow-data:/app/langflow
+      - ./flows:/app/flows
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:7860/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
