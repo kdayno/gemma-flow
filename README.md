@@ -1,3 +1,5 @@
+![Gemma Flow Header](./docs/gemma-flow-header.png)
+
 # Purpose
 - Develop a simple local AI workflow using the Retrieval-Augmented Generation (RAG) AI design pattern
 - Experiment with multiple open-weight AI models and assess performance
